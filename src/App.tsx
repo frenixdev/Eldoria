@@ -1,5 +1,7 @@
-import Header from "./assets/Components/header/Header";
-import HomeSearch from "./assets/Components/home-search/HomeSearch";
+import Container from "./assets/Components/Container";
+import Header from "./assets/Components/Header";
+import ProductScroller from "./assets/Components/ProductSwiper";
+import HomeSearch from "./assets/Components/HomeSearch";
 
 export default function (){
 
@@ -7,6 +9,7 @@ export default function (){
     <>
     <Header/>
     <HomeSearch/>
+    <ProductScroller/>
     </>
   )
 
