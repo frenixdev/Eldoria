@@ -33,13 +33,16 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-html,body{
-  height: 100%;
-  overflow: hidden;
-  margin: 0;
-}
-#root{
-  height: 100%;
-  overflow-y: auto;
-  position: relative;
-}
+/* @media (width<=40rem) {
+
+  html,body{
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+  }
+  #root{
+    height: 100%;
+    overflow-y: auto;
+    position: relative;
+  }
+} */

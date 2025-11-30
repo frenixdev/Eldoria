@@ -1,9 +1,4 @@
-import {
-  useContext,
-  createContext,
-  useReducer,
-  useEffect,
-} from "react";
+import { useContext, createContext, useReducer, useEffect } from "react";
 import { bestSeller, mustHaves } from "./productsDetails";
 import type { CardData } from "./productsDetails";
 
@@ -53,7 +48,10 @@ function reducer(state: shopContext, action: ShopAction): shopContext {
 export default function ShopContext({ children }: props) {
   const [state, dispatch] = useReducer(reducer, initialState, (initial) => {
     const stringData = localStorage.getItem("shopDetails");
-    return stringData ? (JSON.parse(stringData)) : initial;
+    if(!stringData) return initial;
+    const data =JSON.parse(stringData)
+    if(typeof data !== "object" || !("products" in data) || data.products.length === 0 || !data) return initial
+    return data
   });
 
   useEffect(() => {

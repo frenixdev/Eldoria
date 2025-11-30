@@ -5,6 +5,7 @@ import App from './App'
 import { BrowserRouter } from "react-router-dom"
 import ShopContext from "./Store/ShopContext"
 
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <BrowserRouter>
@@ -12,5 +13,6 @@ createRoot(document.getElementById('root')!).render(
       <App />
     </ShopContext>
     </BrowserRouter>
+
   </StrictMode>,
 )

@@ -29,7 +29,7 @@ export default function () {
       <DesktopNav className="hidden md:flex" />
       <Link to="/cart" >
         <Button className="rounded-full lg:text-4xl ">
-          <BsHandbag className="" />
+          <BsHandbag className="text-black" />
         </Button>
       </Link>
     </header>
