@@ -1,4 +1,4 @@
-import Link from "../Utility/Link";
+
 import NavItems from "./NavItems";
 
 type props = {
