@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 import Container from "../Utility/Container";
-import { getShopDetails } from "../../Store/ShopContext";
+import { useShop } from "../../Store/ShopContext";
 
 import ImageComp from "./ImageComp";
 const ProductDetail = () => {
   const params = useParams();
-  const {products} = getShopDetails();
+  const {products} = useShop();
   const selectedProduct = products.find( product => product.id === params.id);
   if (!selectedProduct) throw new Error("Product not found")
   return (

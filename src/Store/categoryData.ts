@@ -17,7 +17,7 @@
   { title: "Footwear", img: "https://i.pinimg.com/736x/cd/38/c2/cd38c2c357d943d1e6621f830b15a8dd.jpg" },
   { title: "Kids",   img: "https://i.pinimg.com/736x/14/1e/36/141e365a2a170800ada90f12174fcd7c.jpg"},
   { title: "Woman", img: "https://i.pinimg.com/736x/c4/1b/a8/c41ba828eea1a2b87494433adeba02a2.jpg"},
-  { title: "Man",  img: "https://i.pinimg.com/736x/a9/f2/f9/a9f2f9ba3ea005e260c1fa586ab486f8.jpg" }
+  { title: "Casual",  img: "https://i.pinimg.com/736x/a9/f2/f9/a9f2f9ba3ea005e260c1fa586ab486f8.jpg" }
 ];
 
 export default items

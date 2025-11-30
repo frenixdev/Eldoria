@@ -3,7 +3,6 @@ import {
   createContext,
   useReducer,
   useEffect,
-  useState,
 } from "react";
 import { bestSeller, mustHaves } from "./productsDetails";
 import type { CardData } from "./productsDetails";
@@ -17,7 +16,6 @@ interface shopContext {
 }
 type ShopAction =
   | { type: "INCREASE_QTY"; payload: string }
-  | { type: "LOAD_LOCAL_DATA"; payload: shopContext }
   | { type: "DECREASE_QTY"; payload: string }
   | { type: "ADD_TO_CART"; payload: string }
   | { type: "TOGGLE_LIKE"; payload: string }
@@ -46,12 +44,6 @@ function reducer(state: shopContext, action: ShopAction): shopContext {
             : product
         ),
       };
-    case "LOAD_LOCAL_DATA":
-      return {
-        ...state,
-        products: action.payload.products ?? state.products,
-        cart: action.payload.cart ?? state.cart,
-      };
 
     default:
       return state;
@@ -60,8 +52,8 @@ function reducer(state: shopContext, action: ShopAction): shopContext {
 
 export default function ShopContext({ children }: props) {
   const [state, dispatch] = useReducer(reducer, initialState, (initial) => {
-    const data = localStorage.getItem("shopDetails");
-    return data ? JSON.parse(data) : initial;
+    const stringData = localStorage.getItem("shopDetails");
+    return stringData ? (JSON.parse(stringData)) : initial;
   });
 
   useEffect(() => {
@@ -79,12 +71,12 @@ export default function ShopContext({ children }: props) {
   );
 }
 
-export const getShopDetails = () => {
+export const useShop = () => {
   const ctx = useContext(ShopDetailsCtx);
   if (!ctx) throw new Error("Shop context is null");
   return ctx;
 };
-export const getDispatch = () => {
+export const useDispatch = () => {
   const ctx = useContext(DispatchCtx);
   if (!ctx) throw new Error("Dispatch context is null");
   return ctx;
