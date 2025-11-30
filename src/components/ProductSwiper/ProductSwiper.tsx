@@ -1,23 +1,22 @@
-import Container from "./Container";
+import Container from "../Utility/Container";
 import ProductMiniCard from "./ProductMiniCard";
 import {Swiper , SwiperSlide } from "swiper/react"
-import data from "../Data/categoryData";
+import data from "../../Store/categoryData";
 import "swiper/swiper-bundle.css";
 
 const ProductScroller = () => {
   return (
-    <Container className="select-none overflow-hidden  relative">
+    <Container className="select-none overflow-hidden  relative ">
       <Swiper
       spaceBetween={30}
       direction="horizontal"
       slidesPerView="auto"
       grabCursor={true}
       loop={true}
-      className="w-full cursor-pointer"
-
+      className="w-full cursor-pointer "
        >
         {data.map((details) => (
-          <SwiperSlide className="w-auto!"><ProductMiniCard {...details} /></SwiperSlide>
+          <SwiperSlide  key={details.title}  className="w-auto! "><ProductMiniCard{...details} /></SwiperSlide>
         ))}
       </Swiper>
     </Container>

@@ -1,16 +1,15 @@
-import Container from "./assets/Components/Container";
-import Header from "./assets/Components/Header";
-import ProductScroller from "./assets/Components/ProductSwiper";
-import HomeSearch from "./assets/Components/HomeSearch";
+import HomeScreen from "./components/homeScreen/HomeScreen";
+import ProductDetail from "./components/ProductDetail/ProductDetail";
 
-export default function (){
+import Cart from "./components/ShoppingCart/Cart";
+import { Route, Routes } from "react-router";
 
-  return(
-    <>
-    <Header/>
-    <HomeSearch/>
-    <ProductScroller/>
-    </>
-  )
-
+export default function () {
+  return (
+    <Routes>
+      <Route path="/" element={<HomeScreen />} />
+      <Route path="/cart" element={<Cart />} />
+      <Route path="/product-details/:id" element={<ProductDetail />} />
+    </Routes>
+  );
 }

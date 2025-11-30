@@ -27,7 +27,7 @@ export default function Input({
         value={value}
         onChange={handleChange}
         {...rest}
-        className="inline-block w-full outline-none"
+        className="inline-block w-full outline-none placeholder:text-sm placeholder:italic placeholder:font-mono"
         onFocus={handleFocus}
       />
     </div>
