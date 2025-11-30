@@ -6,7 +6,7 @@ type props = {
 
 const ProductMiniCard = ({ title, img }: props) => {
   return (
-    <div className=" w-16 md:w-24 pt-5">
+    <div className=" w-16 md:w-24 pt-1">
       <div className="aspect-square w-full border border-stone-300 overflow-hidden rounded-full bg-cyan-200 hover:scale-110 transition-all duration-300">
         <img src={img} className="object-cover w-full h-full" />
       </div>
