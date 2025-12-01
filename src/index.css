@@ -33,16 +33,24 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-/* @media (width<=40rem) {
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+* {
+  scrollbar-width: none;
+}
 
   html,body{
     height: 100%;
     overflow: hidden;
     margin: 0;
+
   }
   #root{
     height: 100%;
     overflow-y: auto;
     position: relative;
   }
-} */
+
