@@ -1,38 +1,91 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+NO:wght@100..400&family=Poppins:wght@200;300;400;500&display=swap");
 @import "tailwindcss";
-/* Poppins Roboto Montserrat */
-:root{
-  --clr-primary: ;
-  --clr-secondary: ;
-  --clr-border: hsl(0 0  50);
-  --clr-shadow: hsl(0 0 70);
-  --clr-bg: ;
 
-  --clr-text:hsl(0 0 5) ;
-  --clr-muted: hsl(0 0 70);
+@theme {
+  /* primary colors */
+  --color-primary: theme(--color-orange-500);
+  --color-primary-hover: theme(--color-orange-600);
+  --color-primay-soft: theme(--color-orange-50);
 
-  --space-sm: 4px;
-  --space-md: 8px;
-  --space-base: 12px;
-  --space-lg: 16px;
-  --space-xl: 20px;
+  /* cta colors  */
+  --color-cta: theme(colors.orange.500);
+  --color-cta-text: theme(colors.white);
+  --color-cta-soft: theme(colors.orange.50);
+  --color-cta-dark-text: theme(colors.orange.800);
+  --color-cta-border: theme(colors.orange.300);
 
-  --border: 1px solid var(--clr-border);
-  --border-lg: 1px solid var(--clr-border);
-  --border-test: 1px solid red;
+  /* page colors */
+  --color-page: theme(--color-orange-50);
+  --color-section: theme(--color-orange-100);
+  --color-surface: theme(--color-white);
 
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-base: 12px;
-  --radius-lg: 16px;
-  --radius-xl: 20px;
+  /* text colors  */
+  --color-clr-text: theme(colors.zinc.900);
+  --color-clr-para: theme(colors.zinc.700);
+  --color-clr-muted: theme(colors.zinc.500);
+  --color-clr-disabled: theme(colors.zinc.400);
+
+  /* boder colors  */
+  --color-border: theme(colors.zinc.200);
+  --color-border-hover: theme(colors.zinc.300);
+
+  /* utility colors  */
+  --color-focus: theme(colors.orange.300); /*  300 400 */
+  --color-ring: theme(colors.orange.200); /*  200 */
+
+  /* status colors  */
+
+  --color-sucess: theme(colors.emerald.50);
+  --color-sucess-text: theme(colors.emerald.700)
+    --color-warning: theme(colors.yellow.50);
+  --color-warning-text: theme(colors.yellow.700);
+
+  --color-error: theme(colors.red.50);
+  --color-error-text: theme(colors.red.700);
+
+  --color-info: theme(colors.blue.50);
+  --color-info-text: theme(colors.blue.700);
+
+  /* shadowss */
+
+  --shadow-sm:
+    inset 0 1px 2px #ffffff30, 0 1px 2px #00000030, 0 2px 2px #00000015;
+  --shadow-md:
+    inset 0 1px 2px #ffffff50, 0 2px 4px #00000030, 0 4px 8px #00000015;
+  --shadow-lg:
+    inset 0 1px 2px #ffffff70, 0 4px 6px #00000030, 0 6px 10px #00000015;
+
+  /* transitions  */
+  --transition-fast: 150ms ease-out;
+  --transition-md: 200ms ease-out;
+  --transition-slow: 300ms ease-in-out;
+
+  --font-playwrite: "Playwrite No";
+  --font-popins: "Poppins";
+  --font-mont: "Montserrat";
+  --font-inter: "Inter";
 }
-*{
-  font-family: "Poppins";
 
+body.dark {
+  --color-primary: theme(colors.orange-500);
+  --color-primary-hover: theme(colors.orange-600);
+
+  --color-page: theme(colors.zinc.900);
+  --color-section: theme(colors.zinc.800);
+  --color-surface: theme(colors.zinc.800);
+
+  --color-clr-text: theme(colors.zinc.100);
+  --color-clr-para: theme(colors.zinc.400);
+  --color-clr-muted: theme(colors.zinc.500);
+  --color-clr-disabled: theme(colors.zinc.600);
+
+  --color-border: theme(colors.zinc.700);
+  --color-border-hover: theme(colors.zinc.600);
+}
+
+* {
   -webkit-tap-highlight-color: transparent;
 }
-
 
 ::-webkit-scrollbar {
   display: none;
@@ -42,15 +95,15 @@
   scrollbar-width: none;
 }
 
-  html,body{
-    height: 100%;
-    overflow: hidden;
-    margin: 0;
-
-  }
-  #root{
-    height: 100%;
-    overflow-y: auto;
-    position: relative;
-  }
-
+html,
+body {
+  height: 100%;
+  overflow: hidden;
+  margin: 0;
+  font-family: "Inter";
+}
+#root {
+  height: 100%;
+  overflow-y: auto;
+  position: relative;
+}
