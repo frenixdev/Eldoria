@@ -6,7 +6,7 @@ import "swiper/swiper-bundle.css";
 
 const ProductScroller = () => {
   return (
-    <Container className="select-none overflow-hidden  relative pb-0! lg:p-5 rounded-full border border-zinc-200 hover:shadow-md transition ">
+    <Container className="select-none overflow-hidden  relative pb-0! lg:p-5 rounded-full border border-border hover:shadow-md transition ">
       <Swiper
       spaceBetween={30}
       direction="horizontal"

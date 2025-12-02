@@ -50,7 +50,7 @@ export default function () {
       </Button>
       <Link to="/cart">
         <Button className="rounded-full lg:text-4xl ">
-          <BsHandbag className="text-black" />
+          <BsHandbag className="" />
         </Button>
       </Link>
       </div>

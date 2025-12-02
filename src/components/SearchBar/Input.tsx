@@ -16,9 +16,7 @@ export default function Input({
   function handleChange(e: React.ChangeEvent<HTMLInputElement>) {
     setValue(e.target.value);
   }
-  function handleFocus() {
-    console.log("focused");
-  }
+
   return (
     <div className={className}>
       <input
@@ -27,8 +25,8 @@ export default function Input({
         value={value}
         onChange={handleChange}
         {...rest}
-        className="inline-block w-full outline-none placeholder:text-sm placeholder:italic placeholder:font-mono"
-        onFocus={handleFocus}
+        className="inline-block w-full outline-none placeholder:text-sm placeholder:italic placeholder:font-mono "
+
       />
     </div>
   );

@@ -19,15 +19,15 @@ const CategoryWrapper = ({
 }: CardProps) => {
   return (
     <div
-      className={`${className} w-full m  md:p-5 p-3 bg-neutral-50 rounded-lg  `}
+      className={`${className} w-full m  md:p-5 p-3 bg-section rounded-lg  `}
     >
       <div
         id="top-row"
         className="flex items-center
         justify-between w-full mb-5 "
       >
-        <h3 className="text-zinc-800 md:text-3xl font-semibold text-lg ">{title}</h3>
-        <Button className="text-sm md:text-xl text-orange-500 hover:underline" onClick={handleClick}>
+        <h3 className="text-clr-text md:text-3xl font-semibold text-lg ">{title}</h3>
+        <Button className="text-sm md:text-xl text-primary hover:underline" onClick={handleClick}>
           See more
         </Button>
       </div>
