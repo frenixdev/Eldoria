@@ -1,22 +1,13 @@
-import { CiStar } from "react-icons/ci"; //empty-star
-import { FaStar } from "react-icons/fa6"; // fill-star
 import type { CardData } from "../../Store/productsDetails";
+import Rating from "./Rating";
 const Card = ({ title, img, price, stars, totalRating }: CardData) => {
-  const starList: string[] = [];
-  for (let i = 0; i < 5; i++) {
-    if (i < stars) {
-      starList.push("fill");
-    } else {
-      starList.push("empty");
-    }
-  }
   return (
     <div
       className="card
     w-full border border-border  rounded-lg  shadow-sm cursor-pointer
      bg-surface transition-all duration-(--transition-fast)
      hover:shadow-md hover:-translate-y-1
-     md:p-4"
+     md:p-4 py-2"
     >
       <div
         className="image-wrapper
@@ -27,28 +18,14 @@ const Card = ({ title, img, price, stars, totalRating }: CardData) => {
         <p
           className="price-tag
           absolute z-10 bottom-0 right-0
-          rounded-tl-sm  text-xs text-clr-text
+          rounded-tl-sm  text-xs text-cta-soft
            bg-primary  rounded-full px-2 py-1 "
         >
           $ {price}
         </p>
       </div>
       <p className="text-sm md:text-base m-2">{title}</p>
-      <div className="flex  items-center w-auto  ">
-        <div className="flex gap-1 items-center  text-base">
-          {starList.map((star, index) => {
-            if (star === "fill") {
-              return <FaStar key={index} className="text-yellow-500" />;
-            } else {
-              return <CiStar key={index} />;
-            }
-          })}
-        </div>
-        <span className="ml-2 text-sm text-zinc-600 ">
-          {" "}
-          • ( {totalRating} reviews )
-        </span>
-      </div>
+      <Rating stars={stars} totalRating={totalRating} className="ml-2 md:ml-0"/>
     </div>
   );
 };

@@ -1,20 +1,21 @@
 import Link from "../Utility/Link";
 type props = {
   className : string
+  listClassName?: string,
 }
-const NavItems = ({className}:props) => {
+const NavItems = ({className, listClassName}:props) => {
   return (
     <ul className={`${className} `}>
-      <li>
+      <li  className={listClassName} >
         <Link url="#">Categories</Link>
       </li>
-      <li>
+      <li className={listClassName}>
         <Link url="#">Deals</Link>
       </li>
-      <li>
+      <li className={listClassName}>
         <Link url="#">Wishlist</Link>
       </li>
-      <li>
+      <li className={listClassName}>
         <Link url="#">Support</Link>
       </li>
     </ul>

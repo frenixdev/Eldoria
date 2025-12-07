@@ -13,7 +13,10 @@ import { Link } from "react-router-dom";
 
 export default function () {
   const [isOpen, setIsOpen] = useState(false);
-  const [theme, setTheme] = useState("light");
+  const [theme, setTheme] = useState<string>(()=> {
+    const theme = localStorage.getItem("theme")
+    return theme ? theme : "light"
+  });
 
   useEffect(() => {
     if (theme === "dark") {
@@ -21,6 +24,7 @@ export default function () {
     } else {
       document.body.classList.remove("dark");
     }
+    localStorage.setItem("theme", theme)
   }, [theme]);
   function toggleTheme() {
     setTheme((prev) => (prev === "light" ? "dark" : "light"));
@@ -31,7 +35,7 @@ export default function () {
   return (
     <header className="flex items-center justify-between p-5 md:px-20 sticky top-0 left-0 w-full bg-section z-99 ">
       <Button
-        className="relative z-999 block cursor-pointer rounded-full p-2 text-2xl md:hidden"
+        className="relative z-999 block cursor-pointer rounded-full p-2 text-2xl lg:hidden"
         onClick={handleMenuToggle}
       >
         {isOpen ? <IoMdClose /> : <RiMenuLine />}
@@ -42,19 +46,17 @@ export default function () {
       </h1>
 
       <MobileNav isOpen={isOpen} className={``} />
-      <DesktopNav className="hidden   md:flex" />
-      <div>
-
-      <Button onClick={toggleTheme} className="text-4xl mr-5">
-        {theme === "light" ? <MdDarkMode /> : <MdOutlineLightMode />}
-      </Button>
-      <Link to="/cart">
-        <Button className="rounded-full lg:text-4xl ">
-          <BsHandbag className="" />
+      <DesktopNav className="hidden   lg:flex" />
+      <div className="flex items-center">
+        <Button onClick={toggleTheme} className="text-4xl mr-5">
+          {theme === "light" ? <MdDarkMode /> : <MdOutlineLightMode />}
         </Button>
-      </Link>
+        <Link to="/cart">
+          <Button className="rounded-full lg:text-4xl ">
+            <BsHandbag className="" />
+          </Button>
+        </Link>
       </div>
-
     </header>
   );
 }

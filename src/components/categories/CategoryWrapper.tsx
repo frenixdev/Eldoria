@@ -32,7 +32,7 @@ const CategoryWrapper = ({
         </Button>
       </div>
       <CardsWrapper
-        className={`${wrapperClass}  grid w-full grid-cols-2 gap-10 place-items-center md:grid-cols-3  lg:grid-cols-2
+        className={`${wrapperClass}  grid w-full grid-cols-2 gap-4 md:gap-10 place-items-center md:grid-cols-3  lg:grid-cols-2
 `}
       >
         {children}

@@ -2,7 +2,7 @@ import { useContext, createContext, useReducer, useEffect } from "react";
 import { bestSeller, mustHaves } from "./productsDetails";
 import type { CardData } from "./productsDetails";
 
-interface CartItems extends CardData {
+export interface CartItems extends CardData {
   quantity: number;
 }
 interface shopContext {
@@ -39,7 +39,47 @@ function reducer(state: shopContext, action: ShopAction): shopContext {
             : product
         ),
       };
-
+    case "ADD_TO_CART":
+      const existingItem = state.cart.find(
+        (item) => item.id === action.payload
+      );
+      if (existingItem) {
+        return {
+          ...state,
+          cart: [
+            ...state.cart.map((item) =>
+              item.id === action.payload
+                ? { ...item, quantity: (item.quantity ?? 1) + 1 }
+                : item
+            ),
+          ],
+        };
+      } else {
+        const product: CardData | undefined = state.products.find(
+          (item) => item.id === action.payload
+        );
+        if (!product) return state;
+        return {
+          ...state,
+          cart: [...state.cart, { ...product, quantity: 1 }],
+        };
+      }
+    case "INCREASE_QTY":
+      return {
+        ...state,
+        cart: [
+          ...state.cart.map((item) =>
+            item.id === action.payload
+              ? { ...item, quantity: item.quantity + 1 }
+              : item
+          ),
+        ],
+      };
+    case "DECREASE_QTY":
+      return {
+        ...state,
+        cart: state.cart.map(item => item.id === action.payload ? ({...item, quantity: item.quantity - 1}): item).filter(item => item.quantity !== 0)
+      };
     default:
       return state;
   }
@@ -48,10 +88,16 @@ function reducer(state: shopContext, action: ShopAction): shopContext {
 export default function ShopContext({ children }: props) {
   const [state, dispatch] = useReducer(reducer, initialState, (initial) => {
     const stringData = localStorage.getItem("shopDetails");
-    if(!stringData) return initial;
-    const data =JSON.parse(stringData)
-    if(typeof data !== "object" || !("products" in data) || data.products.length === 0 || !data) return initial
-    return data
+    if (!stringData) return initial;
+    const data = JSON.parse(stringData);
+    if (
+      typeof data !== "object" ||
+      !("products" in data) ||
+      data.products.length === 0 ||
+      !data
+    )
+      return initial;
+    return data;
   });
 
   useEffect(() => {

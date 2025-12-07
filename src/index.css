@@ -5,8 +5,8 @@
   /* primary colors */
   --color-primary: theme(--color-orange-500);
   --color-primary-hover: theme(--color-orange-600);
-  --color-primay-soft: theme(--color-orange-50);
-
+  --color-primary-soft: theme(--color-orange-50);
+  --color-primary-text: theme(--color-white);
   /* cta colors  */
   --color-cta: theme(colors.orange.500);
   --color-cta-text: theme(colors.white);
@@ -33,10 +33,15 @@
   --color-focus: theme(colors.orange.300); /*  300 400 */
   --color-ring: theme(colors.orange.200); /*  200 */
 
+
+
+
   /* status colors  */
 
+
+
   --color-sucess: theme(colors.emerald.50);
-  --color-sucess-text: theme(colors.emerald.700)
+  --color-sucess-text: theme(colors.emerald.700);
     --color-warning: theme(colors.yellow.50);
   --color-warning-text: theme(colors.yellow.700);
 
@@ -64,6 +69,8 @@
   --font-popins: "Poppins";
   --font-mont: "Montserrat";
   --font-inter: "Inter";
+
+
 }
 
 body.dark {

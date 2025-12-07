@@ -15,7 +15,7 @@ const Button = ({
 }: props) => {
   return (
     <button
-      className={`${className} cursor-pointer p-2 text-2xl transition-all duration-300 ease-in-out`}
+      className={`${className} cursor-pointer  text-2xl transition-all duration-300 ease-in-out`}
       onClick={onClick}
       {...props}
     >
